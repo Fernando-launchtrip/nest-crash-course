@@ -9,9 +9,20 @@ export class UsersService {
       id: uuidv4(),
       name: 'Fernando',
     },
+    {
+      id: uuidv4(),
+      name: 'Bob',
+    },
+    {
+      id: uuidv4(),
+      name: 'Jack',
+    },
   ];
 
-  findAll(): User[] {
+  findAll(name?: string): User[] {
+    if (name) {
+      return this.users.filter((user) => user.name === name);
+    }
     return this.users;
   }
 
